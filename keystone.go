@@ -209,7 +209,7 @@ func (e *Engine) malloc(n uint32) uint32 {
 }
 
 func (e *Engine) free(ptr uint32) {
-	_, err := e._malloc.Call(e.context, uint64(ptr))
+	_, err := e._free.Call(e.context, uint64(ptr))
 	if err != nil {
 		panic(fmt.Sprintf("failed to free 0x%X: %s", ptr, err))
 	}
